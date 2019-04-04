@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/example?serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+#  redis:
+#    host: 
+mybatis:
+  # 配置mapper文件路径
+  mapper-locations: classpath:mapper/*.xml
+  # 类型别名扫描路径
+  type-aliases-package: cn.uppp.example.entity
+  configuration:
+    # 开启驼峰命名
+    map-underscore-to-camel-case: true
+    # sql信息输出到控制台
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
