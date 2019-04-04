@@ -7,12 +7,12 @@ spring:
     username: root
     password: 123456
 mybatis:
-  # ÅäÖÃmapperÎÄ¼şÂ·¾¶
+  # Mapperæ–‡ä»¶æ‰«æè·¯å¾„
   mapper-locations: classpath:mapper/*.xml
-  # ÀàĞÍ±ğÃûÉ¨ÃèÂ·¾¶
+  # å®ä½“ç±»åˆ«åæ‰«æ
   type-aliases-package: cn.uppp.example.entity
   configuration:
-    # ¿ªÆôÍÕ·åÃüÃû
+    # å¼€å¯é©¼å³°å‘½å
     map-underscore-to-camel-case: true
-    # sqlĞÅÏ¢Êä³öµ½¿ØÖÆÌ¨
+    # è¾“å‡ºè¿è¡Œä¿¡æ¯åˆ°æ§åˆ¶å°
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@CacheConfig
+@CacheConfig(cacheNames = "user")
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
      *
      * @return
      */
-    @Cacheable
+    @Cacheable(key = "'user_'+getMethodName()")
     @Override
     public List<User> list() {
         return userDao.list();
