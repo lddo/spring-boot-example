@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.uppp.example.dao.UserDao">
+    <resultMap id="BaseResultMap" type="User">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="All_Column">
+        id, username, password
+    </sql>
+
+    <select id="list" resultMap="BaseResultMap">
+        select
+        <include refid="All_Column"/>
+        from user
+    </select>
+
+    <select id="getById" resultMap="BaseResultMap" parameterType="Integer">
+        select
+        <include refid="All_Column"/>
+        from user
+        where id = #{id}
+    </select>
+
+    <insert id="save" parameterType="User">
+        insert into user
+        values(0, #{username}, #{password})
+    </insert>
+
+    <delete id="remove" parameterType="Integer">
+        delete from user
+        where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="User">
+        update user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password}
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+</mapper>

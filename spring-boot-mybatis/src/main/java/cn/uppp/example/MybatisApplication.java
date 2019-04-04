@@ -4,8 +4,11 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * 应用入口
+ * @MapperScan 扫描mapper文件对应接口
+ */
 @SpringBootApplication
-// 扫描mapper文件对应接口
 @MapperScan(basePackages = "cn.uppp.example.dao")
 public class MybatisApplication {
 

@@ -6,18 +6,10 @@ import cn.uppp.example.entity.User;
 import cn.uppp.example.service.UserService;
 import cn.uppp.example.utils.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * 用户
- *
- * @CacheConfig 统一配置缓存文件夹
- */
-@CacheConfig(cacheNames = "user")
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -26,10 +18,9 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 获取用户列表
-     * @Cacheable 启用缓存
+     *
      * @return
      */
-    @Cacheable(key = "'user_'+getMethodName()")
     @Override
     public List<User> list() {
         return userDao.list();
