@@ -8,6 +8,7 @@ import cn.uppp.example.utils.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.interceptor.SimpleKey;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class UserServiceImpl implements UserService {
      * @Cacheable 启用缓存
      * @return
      */
-    @Cacheable(key = "'user_'+getMethodName()")
+    @Cacheable(keyGenerator = "customKeyGenerator")
     @Override
     public List<User> list() {
         return userDao.list();

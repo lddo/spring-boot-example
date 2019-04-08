@@ -11,9 +11,12 @@ spring:
     url: redis://192.168.200.131:6379
   cache:
     type: redis
+    # 自定义RedisConfiguration时，下面配置不生效
     redis:
       # 缓存持续时间，记得加单位，否则配置无效
       time-to-live: 30s
+      # 缓存null结果，防止攻击
+      cache-null-values: true
 mybatis:
   # Mapper文件扫描路径
   mapper-locations: classpath:mapper/*.xml

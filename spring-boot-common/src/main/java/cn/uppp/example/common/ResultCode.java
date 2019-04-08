@@ -9,6 +9,8 @@ import lombok.Getter;
 public enum ResultCode {
     SUCCESS(1, "成功"),
 
+    UNKNOWN_ERROR(101, "未知错误"),
+
     APP_ERROR(1001, "应用发生错误"),
     APP_CONTROLLER_ERROR(1002, "控制层发生错误"),
     APP_SERVICE_ERROR(1003, "服务层发生错误"),
